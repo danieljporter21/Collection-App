@@ -35,6 +35,6 @@ $result = $query->fetchAll();
 echo '<pre>';
 print_r($result);
 echo '</pre>';
-}
+
 ?>
 
