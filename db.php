@@ -42,13 +42,13 @@ function runSQL(PDO $dbConnection, string $sql, array $params = null): void
 
 function fetchAllFilms(PDO $dbConnection): array
 {
-    $sql = 'SELECT `films`.`id`, `films`.`title`, `films`.`box_office`, `films`.`director`, `films`.`box_office`, `films`.`phase`, `films`.`release_date`,
-                                `films`.`img_name`, `directors`.`director`, `phases`.`phase`
-                               FROM `films`
-                                    INNER JOIN `directors`
-                                    ON `films`.`director` = `directors`.`id`
-                                    INNER JOIN `phases`
-                                    ON `films`.`phase` = `phases`.`id`;';
+    $sql = 'SELECT `films`.`id`, `films`.`title`, `films`.`box_office`, `films`.`director`, `films`.`box_office`,
+           `films`.`phase`, `films`.`release_date`, `films`.`img_name`, `directors`.`director`, `phases`.`phase`
+            FROM `films`
+                INNER JOIN `directors`
+                ON `films`.`director` = `directors`.`id`
+                INNER JOIN `phases`
+                ON `films`.`phase` = `phases`.`id`;';
 
     return fetchAll($dbConnection, $sql);
 }
