@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS `directors`;
 CREATE TABLE `directors` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `director` varchar(255) DEFAULT NULL,
-
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -23,7 +22,6 @@ DROP TABLE IF EXISTS `phases`;
 CREATE TABLE `phases` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `phase` varchar(255) DEFAULT NULL,
-
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -41,21 +39,20 @@ CREATE TABLE `films` (
   `phase` int(11) unsigned DEFAULT NULL,
   `release_date` date DEFAULT NULL,
   `img_name` blob DEFAULT NULL,
-
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_films_directors` FOREIGN KEY (`director`) REFERENCES `directors`(`id`),
   CONSTRAINT `fk_films_phases` FOREIGN KEY (`phase`) REFERENCES `phases`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`,`img_name`) VALUES (1, 'Iron-Man', 585.2, 1, 1, '2008-05-02','iron_man1');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (2, 'The Incredible Hulk', 265.6, 2, 1, '2008-06-13');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (3, 'Iron Man 2', 621.2, 1, 1, '2010-05-07');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (4, 'Thor', 449.3, 3, 1, '2011-05-06');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (5, 'Captain America: The First Avenger', 370.6, 4, 1, '2011-07-22');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (6, 'Avengers Assemble', 1515.1, 5, 1, '2012-05-04');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (7, 'Iron Man 3', 1215.4, 6, 2, '2013-05-03');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (8, 'Thor: The Dark World', 644.6, 7, 2, '2013-11-08');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (9, 'Captain America: The Winter Soldier', 714.4, 8, 2, '2014-04-04');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (10, 'Guardians of the Galaxy', 770.8, 9, 2, '2014-08-01');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (11, 'Avengers: Age of Ultron', 1395.3, 5, 2, '2015-05-01');
-INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`) VALUES (12, 'Ant Man', 518.9, 10, 2, '2015-07-17');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`,`img_name`) VALUES (1, 'Iron-Man', 585.2, 1, 1, '2008-05-02','iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (2, 'The Incredible Hulk', 265.6, 2, 1, '2008-06-13', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (3, 'Iron Man 2', 621.2, 1, 1, '2010-05-07', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (4, 'Thor', 449.3, 3, 1, '2011-05-06', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (5, 'Captain America: The First Avenger', 370.6, 4, 1, '2011-07-22','iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (6, 'Avengers Assemble', 1515.1, 5, 1, '2012-05-04','iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (7, 'Iron Man 3', 1215.4, 6, 2, '2013-05-03', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (8, 'Thor: The Dark World', 644.6, 7, 2, '2013-11-08', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (9, 'Captain America: The Winter Soldier', 714.4, 8, 2, '2014-04-04','iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (10, 'Guardians of the Galaxy', 770.8, 9, 2, '2014-08-01','iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (11, 'Avengers: Age of Ultron', 1395.3, 5, 2, '2015-05-01', 'iron_man1.jpg');
+INSERT INTO `films` (`id`, `title`, `box_office`, `director`, `phase`, `release_date`, `img_name`) VALUES (12, 'Ant Man', 518.9, 10, 2, '2015-07-17','iron_man1.jpg');
