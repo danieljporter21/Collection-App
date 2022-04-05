@@ -43,11 +43,11 @@ print_r($directors);
         <label for="box_office">Box Office $m:</label>
         <input type="text" id="box_office" name="box_office"><br>
         <label for="director">Director:</label>
-        <select name="director" id="director">
-            <?php
-            echo dropDownDirectors($directors);
-            ?>
-        </select><br>
+<!--        <select name="director" id="director">-->
+<!--            --><?php
+//                echo dropDownDirectors($directors);
+//            ?>
+<!--        </select><br>-->
         <label for="release_date">Release Date:</label>
         <input type="date" id="release_date" name="release_date"><br>
         <input type="submit">

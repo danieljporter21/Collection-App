@@ -14,20 +14,22 @@ function addToDB($pdo) {
 
 
     $title = $_POST['title'];
-    $boxOffice = $_POST['box_office'];
-    $director = $_POST['director'];
-    $phase = $_POST['phase'];
-    $releaseDate= $_POST['release_date'];
-
+////    $boxOffice = $_POST['box_office'];
+//////    $director = intval($_POST['director']);
+//////    $phase = $_POST['phase'];
+////    $releaseDate= $_POST['release_date'];
+//
     $query->bindParam(':newTitle', $title);
-    $query->bindParam(':newBoxOffice', $boxOffice);
-    $query->bindParam(':newDirector', $director);
-    $query->bindParam(':newPhase', $phase);
-    $query->bindParam(':newReleaseDate', $releaseDate);
+////    $query->bindParam(':newBoxOffice', $boxOffice);
+//////    $query->bindParam(':newDirector', $director);
+//////    $query->bindParam(':newPhase', $phase);
+////    $query->bindParam(':newReleaseDate', $releaseDate);
 
     $query->execute();
+
 }
 
 addToDB($connection);
 
 header("Location: index.php");
+

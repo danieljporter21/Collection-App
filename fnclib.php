@@ -19,12 +19,12 @@ function displayFilms(array $films): string
 
 function dropDownDirectors(array $directors): string
 {
-    $directorcomp = '';
+    $directorComponent = '';
     foreach ($directors as $director) {
-        $directorcomp =
-            '<option value="">' .$director['id'] . '</option>';
+        $directorComponent .=
+            '<option value=' . $director['id'] . '>' . $director['director'] . '</option>';
     }
-    return $directorcomp;
+    return $directorComponent;
 }
 
 
