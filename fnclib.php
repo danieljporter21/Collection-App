@@ -11,8 +11,20 @@ function displayFilms(array $films): string
             . '<p> Box Office: $' . $film['box_office'] . 'm</p>'
             . '<p> Director: ' . $film['director'] . '</p>'
             . '<p> Phase: ' . $film['phase'] . '</p>'
-            . '<p> Release Date: ' . $film['release_date'] . '</p>'
+            . '<p> Release Date: ' . date('d-m-y',strtotime($film['release_date'])). '</p>'
             . '</div>';
     }
     return $filmcomponent;
 }
+
+function dropDownDirectors(array $directors): string
+{
+    $directorcomp = '';
+    foreach ($directors as $director) {
+        $directorcomp =
+            '<option value="">' .$director['id'] . '</option>';
+    }
+    return $directorcomp;
+}
+
+
