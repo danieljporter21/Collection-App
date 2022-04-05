@@ -13,7 +13,7 @@ $films = fetchAllFilms(connectToDB($db));
 
 <head>
     <meta charset="UTF-8">
-    <title>HTML with PHP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/style.css">
     <title>Marvel Film Collection</title>
