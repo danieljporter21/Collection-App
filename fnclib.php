@@ -2,9 +2,6 @@
 
 function displayFilms(array $films): string
 {
-    echo '<pre>';
-    print_r($films);
-    echo '</pre>';
     $filmcomponent = '';
     foreach ($films as $film) {
         $filmcomponent .=
