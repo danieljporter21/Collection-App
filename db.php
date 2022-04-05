@@ -1,5 +1,16 @@
 <?php
 
+///**
+// * Get a connection to a MySQL database.
+// *
+// * utf8mb4 is the recommended character set for modern MySQL databases.
+// *
+// * The PDO MySQL driver uses emulated prepared statements by default. As MySQL
+// * supports prepared statements, emulation is turned off.
+// *
+// * @param string $db The name of a database.
+// * @return PDO A PDO instance representing a connection to the database.
+// */
 function connectToDB(string $db): PDO
 {
     $host = 'db';
@@ -24,6 +35,14 @@ function connectToDB(string $db): PDO
     return $dbConnection;
 }
 
+///**
+// * @param PDO $dbConnection The database connection.
+// * @param string $sql An SQL statement.
+// * @param array|null $params [Optional] An associative array of parameters to
+// *                           be bound to named parameters.
+// * @return array Rows from the database.
+// */
+
 function fetchAll(PDO $dbConnection, string $sql, array $params = null): array
 {
     $query = $dbConnection->prepare($sql);
@@ -33,12 +52,19 @@ function fetchAll(PDO $dbConnection, string $sql, array $params = null): array
     return $query->fetchAll();
 }
 
-function runSQL(PDO $dbConnection, string $sql, array $params = null): void
-{
-    $query = $dbConnection->prepare($sql);
-
-    $query->execute($params);
-}
+//
+///**
+// * @param PDO $dbConnection The database connection.
+// * @param string $sql An SQL statement.
+// * @param array|null $params [Optional] An associative array of parameters to
+// *                           be bound to named parameters.
+// */
+//function runSQL(PDO $dbConnection, string $sql, array $params = null): void
+//{
+//    $query = $dbConnection->prepare($sql);
+//
+//    $query->execute($params);
+//}
 
 function fetchAllFilms(PDO $dbConnection): array
 {

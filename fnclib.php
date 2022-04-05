@@ -1,6 +1,6 @@
 <?php
 
-function displayFilm($array)
+function displayFilm(array $array): void
 {
     foreach ($array as $film) {
         $filmcomponent =
