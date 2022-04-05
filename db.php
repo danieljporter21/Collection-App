@@ -78,6 +78,3 @@ function fetchAllFilms(PDO $dbConnection): array
 
     return fetchAll($dbConnection, $sql);
 }
-
-?>
-

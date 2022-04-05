@@ -2,7 +2,8 @@
 require_once 'db.php';
 require_once 'fnclib.php';
 
-$films = fetchAllFilms(connectToDB('CollectionApp'));
+$db = 'CollectionApp';
+$films = fetchAllFilms(connectToDB($db));
 
 ?>
 
@@ -19,20 +20,18 @@ $films = fetchAllFilms(connectToDB('CollectionApp'));
 
 <body>
 <header>
-<!--    <div class="header"></div>-->
     <h1>Marvel Film Collection</h1>
 </header>
 <main>
     <div class="box">
         <?php
-        '<div>' . displayFilm($films) . '</div>';
+            echo displayFilms($films);
         ?>
     </div>
 </main>
 
 <footer>
     <button>Add Film To Collection</button>
-
 </footer>
 
 </body>
