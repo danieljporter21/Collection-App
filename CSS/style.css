@@ -5,7 +5,6 @@
 
 h1{
     text-align: center;
-    color: white;
     background-color: #000000;
     margin: 0;
 }
@@ -23,7 +22,7 @@ h1{
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 1px solid #000000;
+    border: 1rem solid #000000;
     border-radius: 2rem;
     width: 25rem;
     height: auto;
