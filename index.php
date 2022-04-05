@@ -26,7 +26,7 @@ $films = fetchAllFilms(connectToDB($db));
 <main>
     <div class="box">
         <?php
-            echo displayFilms($films);
+        echo displayFilms($films);
         ?>
     </div>
 </main>

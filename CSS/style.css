@@ -1,16 +1,16 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-h1{
+h1 {
     text-align: center;
     background-color: #000000;
     margin: 0;
     color: #ffffff;
 }
 
-.box{
+.box {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -18,7 +18,7 @@ h1{
     margin: .5rem;
 }
 
-.film{
+.film {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,19 +30,19 @@ h1{
     gap: 0;
 }
 
-p{
+p {
     text-align: center;
     padding-bottom: 2rem;
     font-size: 1.2rem;
 }
 
-h2{
+h2 {
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -50,11 +50,11 @@ footer{
     margin: auto;
 }
 
-button{
+button {
     margin: 5rem;
 }
 
-img{
+img {
     width: 100%;
     height: 50%;
 }
