@@ -16,6 +16,7 @@ $films = fetchAllFilms(connectToDB($db));
     <title>HTML with PHP</title>
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/style.css">
+    <title>Marvel Film Collection</title>
 </head>
 
 <body>
@@ -25,7 +26,7 @@ $films = fetchAllFilms(connectToDB($db));
 <main>
     <div class="box">
         <?php
-            echo displayFilms($films);
+        echo displayFilms($films);
         ?>
     </div>
 </main>
