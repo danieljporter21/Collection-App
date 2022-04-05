@@ -22,7 +22,7 @@ h1{
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 1rem solid #000000;
+    border: .25rem solid #000000;
     border-radius: 2rem;
     width: 25rem;
     height: auto;
