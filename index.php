@@ -5,8 +5,7 @@ require_once 'fnclib.php';
 $db = 'CollectionApp';
 $films = fetchAllFilms(connectToDB($db));
 $directors = fetchAllDirectors(connectToDB($db));
-
-print_r($directors);
+$phases = fetchAllPhases(connectToDB($db));
 
 ?>
 
@@ -39,17 +38,26 @@ print_r($directors);
         <label for="title">Title:</label>
         <input type="text" id="title" name="title"><br>
         <label for="image">Image:</label>
-        <input type="text" id="image" name="image"><br>
-        <label for="box_office">Box Office $m:</label>
-        <input type="text" id="box_office" name="box_office"><br>
+        <input type="file" name="image" id="image">
+        <br>
+        <label for="boxOffice">Box Office $m:</label>
+        <input type="text" id="boxOffice" name="boxOffice"><br>
         <label for="director">Director:</label>
         <select name="director" id="director">
             <?php
-            echo dropDownDirectors($directors);
+            echo directorsDropDown($directors);
             ?>
-        </select><br>
-        <label for="release_date">Release Date:</label>
-        <input type="date" id="release_date" name="release_date"><br>
+        </select>
+        <br>
+        <label for="phase">Phase:</label>
+        <select name="phase" id="phase">
+            <?php
+            echo phasesDropDown($phases);
+            ?>
+        </select>
+        <br>
+        <label for="releaseDate">Release Date:</label>
+        <input type="date" id="releaseDate" name="releaseDate"><br>
         <input type="submit">
     </form>
 </footer>

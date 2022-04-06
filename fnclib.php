@@ -17,14 +17,22 @@ function displayFilms(array $films): string
     return $filmcomponent;
 }
 
-function dropDownDirectors(array $directors): string
-{
-    $directorcomp = '';
-    foreach ($directors as $director) {
-        $directorcomp =
-            '<option value="">' .$director['id'] . '</option>';
+function directorsDropDown(array $directors){
+    $directorsComponent = '';
+    foreach($directors as $director){
+        $directorsComponent .=
+            '<option value="'. $director['id']. '">' . $director['director'] . '</option>';
     }
-    return $directorcomp;
+    return $directorsComponent;
+}
+
+function phasesDropDown(array $phases){
+    $phasesComponent = '';
+    foreach($phases as $phase){
+        $phasesComponent .=
+            '<option value="'. $phase['id']. '">' . $phase['phase'] . '</option>';
+    }
+    return $phasesComponent;
 }
 
 
