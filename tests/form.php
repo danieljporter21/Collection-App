@@ -1,6 +1,6 @@
 <?php
 
-require_once '../fnclib.php';
+require_once '../form.php';
 
 use PHPUnit\Framework\TestCase;
 
@@ -46,8 +46,8 @@ class fnclib extends TestCase
     public function testGivenDateReturnDate(){
         $date = '21/07/1994';
 
-        $result = returnDate($date);
+        $result = formatReleaseDate($date);
 
-        $this->assertEquals('', $result);
+        $this->assertEquals('1994-07-21', $result);
     }
 }

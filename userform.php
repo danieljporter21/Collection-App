@@ -28,28 +28,28 @@ $phases = fetchAllPhases(connectToDB($db));
     <h2>Fill Out The Form Below To Add To The Collection:</h2>
     <form action="form.php" method="post" enctype="multipart/form-data">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" required><br>
         <label for="image">Image:</label>
-        <input type="file" name="newFile" id="image">
+        <input type="file" name="newFile" id="image" >
         <br>
         <label for="boxOffice">Box Office $m:</label>
-        <input type="text" id="boxOffice" name="boxOffice"><br>
+        <input type="text" id="boxOffice" name="boxOffice" required><br>
         <label for="director">Director:</label>
-        <select name="director" id="director">
+        <select name="director" id="director" required>
             <?php
             echo directorsDropDown($directors);
             ?>
         </select>
         <br>
         <label for="phase">Phase:</label>
-        <select name="phase" id="phase">
+        <select name="phase" id="phase" required>
             <?php
             echo phasesDropDown($phases);
             ?>
         </select>
         <br>
         <label for="releaseDate">Release Date:</label>
-        <input type="date" id="releaseDate" name="releaseDate"><br>
+        <input type="date" id="releaseDate" name="releaseDate" required><br>
         <input type="submit">
     </form>
 </main>

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'db.php';
+require_once 'fnclib.php';
 
 $db = 'CollectionApp';
 $connection = (connectToDB($db));
@@ -37,7 +38,7 @@ function uploadFile(): string
             throw new RuntimeException('The file is empty.');
         }
 
-        if ($fileSize > 10000000000) {
+        if ($fileSize > 100000000) {
             throw new RuntimeException('Exceeded filesize limit.');
         }
 
@@ -84,25 +85,15 @@ function uploadFile(): string
     }
 }
 
-//header("Location: index.php");
-
 $imageString = uploadFile(); // this calls the function and puts the return value in $imageString
-
-var_dump($imageString);
 
 if (strpos(strtolower($imageString), 'success')) { // if the variable contains the string 'success'
 
     $imageString = substr($imageString, 9); // remove the first 9 characters from -success-
-
-    $pdo = connectToDb('CollectionApp');
-
-    $inserted = addToDb($pdo, $imageString);
 }
-//
-//header("Location: index.php");
-//
 
-function addToDB($pdo, $imageName)
+
+function addToDB(PDO $pdo, string $imageName)
 {
 
     $query = $pdo->prepare(
@@ -115,18 +106,19 @@ function addToDB($pdo, $imageName)
     $boxOffice = $_POST['boxOffice'];
     $director = $_POST['director'];
     $phase = $_POST['phase'];
-    $releaseDate = $_POST['releaseDate'];
+    $date = formatDate($_POST['releaseDate']);
     $image = $imageName;
 
     $query->bindParam(':newTitle', $title);
     $query->bindParam(':newBoxOffice', $boxOffice);
     $query->bindParam(':newDirector', $director);
     $query->bindParam(':newPhase', $phase);
-    $query->bindParam(':newReleaseDate', $releaseDate);
+    $query->bindParam(':newReleaseDate', $date);
     $query->bindParam(':newImage', $image);
 
     $query->execute();
 }
 
 echo addToDB($connection, $imageString);
-
+//var_dump(addToDB($connection,$imageString));
+header("Location: index.php");

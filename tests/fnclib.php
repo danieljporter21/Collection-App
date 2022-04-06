@@ -29,7 +29,7 @@ class fnclib extends TestCase
 
         $result = displayFilms($array);
 
-        $this->assertEquals('<div class="film"><h2>Iron-Man</h2><img src="Images/iron_man1.jpg"><p> Box Office: $585.2m</p><p> Director: John Favreau</p><p> Phase: One</p><p> Release Date: 2008-05-02</p></div>', $result);
+        $this->assertEquals('<div class="film"><h2>Iron-Man</h2><img src="Images/iron_man1.jpg"><p> Box Office: $585.2m</p><p> Director: John Favreau</p><p> Phase: One</p><p> Release Date: 02-05-08</p></div>', $result);
     }
 
     public function testGivenStringThrowError()
@@ -42,4 +42,20 @@ class fnclib extends TestCase
         //Act - calling the function
         $result = displayFilms($array);
     }
+
+    public function testGivenDateReturnDate(){
+        $date = '21-07-1994';
+
+        $result = formatDate($date);
+
+        $this->assertEquals('1994-07-21', $result);
+    }
+
+//    public function testGivenEmptyStringReturnEmptyString(){
+//        $date = '';
+//
+//        $result = formatDate($date);
+//
+//        $this->assertEquals('', $result);
+//    }
 }
