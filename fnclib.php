@@ -38,7 +38,9 @@ function phasesDropDown(array $phases)
     return $phasesComponent;
 }
 
-function formatDate($inputDate){
-    $formatedDate = date('Y-m-d',strtotime($inputDate));
+function formatDate(string $inputDate): string
+{
+    $formatedDate = date('Y-m-d', strtotime($inputDate));
     return $formatedDate;
 }
+

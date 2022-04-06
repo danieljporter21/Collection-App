@@ -43,7 +43,8 @@ class fnclib extends TestCase
         $result = displayFilms($array);
     }
 
-    public function testGivenDateReturnDate(){
+    public function testGivenDateReturnDate()
+    {
         $date = '21-07-1994';
 
         $result = formatDate($date);
@@ -51,11 +52,13 @@ class fnclib extends TestCase
         $this->assertEquals('1994-07-21', $result);
     }
 
-//    public function testGivenEmptyStringReturnEmptyString(){
-//        $date = '';
-//
-//        $result = formatDate($date);
-//
-//        $this->assertEquals('', $result);
-//    }
+    public function testGivenNonDateReturnError()
+    {
+        $date = [];
+
+        $this->expectException(TypeError::class);
+
+        //Act - calling the function
+        $result = formatDate($date);
+    }
 }
