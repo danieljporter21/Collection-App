@@ -5,35 +5,6 @@ require_once 'db.php';
 $db = 'CollectionApp';
 $connection = (connectToDB($db));
 
-function addToDB($pdo) {
-
-    $query = $pdo->prepare(
-        'INSERT INTO `films` (`title`,`box_office`,`director`,`phase`,`release_date`,`img_name`)'
-        . 'VALUES (:newTitle,:newBoxOffice,:newDirector,:newPhase,:newReleaseDate,:newImage)'
-    );
-
-
-    $title = $_POST['title'];
-    $boxOffice = $_POST['boxOffice'];
-    $director = $_POST['director'];
-    $phase = $_POST['phase'];
-    $releaseDate= $_POST['releaseDate'];
-    $image= $_POST['image'];
-
-    $query->bindParam(':newTitle', $title);
-    $query->bindParam(':newBoxOffice', $boxOffice);
-    $query->bindParam(':newDirector', $director);
-    $query->bindParam(':newPhase', $phase);
-    $query->bindParam(':newReleaseDate', $releaseDate);
-    $query->bindParam(':newImage', $image);
-
-    $query->execute();
-}
-
-addToDB($connection);
-
-//header("Location: index.php");
-
 function uploadFile(): string
 {
     try {
@@ -66,7 +37,7 @@ function uploadFile(): string
             throw new RuntimeException('The file is empty.');
         }
 
-        if ($fileSize > 1000000) {
+        if ($fileSize > 10000000000) {
             throw new RuntimeException('Exceeded filesize limit.');
         }
 
@@ -113,22 +84,49 @@ function uploadFile(): string
     }
 }
 
-//$uploadMessage = uploadFile();
+//header("Location: index.php");
 
 $imageString = uploadFile(); // this calls the function and puts the return value in $imageString
+
+var_dump($imageString);
 
 if (strpos(strtolower($imageString), 'success')) { // if the variable contains the string 'success'
 
     $imageString = substr($imageString, 9); // remove the first 9 characters from -success-
 
-    $valid = dataValidation($_POST);
-
     $pdo = connectToDb('CollectionApp');
 
-    $inserted = addToDb($pdo);
+    $inserted = addToDb($pdo, $imageString);
 }
 //
 //header("Location: index.php");
 //
-//// Otherwise, display the error message
-echo $uploadMessage;
+
+function addToDB($pdo, $imageName)
+{
+
+    $query = $pdo->prepare(
+        'INSERT INTO `films` (`title`,`box_office`,`director`,`phase`,`release_date`,`img_name`)'
+        . 'VALUES (:newTitle,:newBoxOffice,:newDirector,:newPhase,:newReleaseDate,:newImage)'
+    );
+
+
+    $title = $_POST['title'];
+    $boxOffice = $_POST['boxOffice'];
+    $director = $_POST['director'];
+    $phase = $_POST['phase'];
+    $releaseDate = $_POST['releaseDate'];
+    $image = $imageName;
+
+    $query->bindParam(':newTitle', $title);
+    $query->bindParam(':newBoxOffice', $boxOffice);
+    $query->bindParam(':newDirector', $director);
+    $query->bindParam(':newPhase', $phase);
+    $query->bindParam(':newReleaseDate', $releaseDate);
+    $query->bindParam(':newImage', $image);
+
+    $query->execute();
+}
+
+echo addToDB($connection, $imageString);
+

@@ -34,32 +34,7 @@ $phases = fetchAllPhases(connectToDB($db));
 </main>
 
 <footer>
-    <form action="form.php" method="post">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br>
-        <label for="image">Image:</label>
-        <input type="file" name="image" id="image">
-        <br>
-        <label for="boxOffice">Box Office $m:</label>
-        <input type="text" id="boxOffice" name="boxOffice"><br>
-        <label for="director">Director:</label>
-        <select name="director" id="director">
-            <?php
-            echo directorsDropDown($directors);
-            ?>
-        </select>
-        <br>
-        <label for="phase">Phase:</label>
-        <select name="phase" id="phase">
-            <?php
-            echo phasesDropDown($phases);
-            ?>
-        </select>
-        <br>
-        <label for="releaseDate">Release Date:</label>
-        <input type="date" id="releaseDate" name="releaseDate"><br>
-        <input type="submit">
-    </form>
+    <button onclick="window.location.href='userform.php';">Add to Collection</button></a>
 </footer>
 </body>
 </html>
