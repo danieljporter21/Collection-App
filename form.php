@@ -102,11 +102,26 @@ function addToDB(PDO $pdo, string $imageName): void
         . 'VALUES (:newTitle,:newBoxOffice,:newDirector,:newPhase,:newReleaseDate,:newImage)'
     );
 
-
     $title = $_POST['title'];
-    $boxOffice = $_POST['boxOffice'];
-    $director = $_POST['director'];
-    $phase = $_POST['phase'];
+//    $boxOffice = $_POST['boxOffice'];
+    if($_POST['boxOffice'] !==0){
+        $boxOffice = $_POST['boxOffice'];
+    }
+    else{
+        $boxOffice = null;
+    }
+    if($_POST['director'] !=='-1'){
+        $director = $_POST['director'];
+    }
+    else{
+        $director = null;
+    }
+    if($_POST['phase'] !=='-1'){
+        $phase = $_POST['phase'];
+    }
+    else{
+        $phase = null;
+    }
     $date = formatDate($_POST['releaseDate']);
     $image = $imageName;
 
@@ -121,19 +136,7 @@ function addToDB(PDO $pdo, string $imageName): void
 }
 
 $isSanitised = sanitiseFormData($_POST);
-$isvalid = validateFormData($_POST);
-
-//echo '<pre>';
-//print_r($isSanitised);
-//echo '</pre>';
-//echo '<pre>';
-//var_dump($isvalid);
-//echo '</pre>';
-//
-//
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
+$isvalid = validateFormData($isSanitised);
 
 if ($isvalid){
     addToDB($connection, $imageString);

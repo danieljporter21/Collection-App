@@ -62,47 +62,123 @@ class fnclib extends TestCase
         $result = formatDate($date);
     }
 
-    public function testValidationGivenArrayReturnTrue()
+    public function testValidationGivenGoodArrayReturnTrue()
     {
 
-        $array[] = array(
-            'title' => 'test',
-            'boxOffice' => '123',
-            'director' => '1',
-            'phase' => '1',
-            'releaseDate' => '2022-04-05'
+        $input= array(
+            'title' => 'IronMan',
+            'boxOffice' => 123,
+            'director' => 'John Favreau',
+            'releaseDate' => '21-07-1994',
+            'phase' => 'One'
         );
 
-        $result = validateFormData($array);
+        $result = validateFormData($input);
 
         $expected = true;
 
         $this->assertEquals($expected,$result);
+        $this->assertisArray($input);
     }
 
-//    public function testSanitisationGivenArrayReturnTrue()
-//    {
-//        $array[] = array(
-//            'title' => 'test',
-//            'img_name' => '2272e4bd843da8def6d322226673735aaa7c6820975ff94322a91f6c95df5d3d.0.png',
-//    'box_office' => '123',
-//    'director' => 1,
-//    'release_date' => '2022-04-05',
-//    'phase' => 1,
-//        );
-//        $expected[] = array(
-//            'title' => 'test',
-//            'img_name' => '2272e4bd843da8def6d322226673735aaa7c6820975ff94322a91f6c95df5d3d.0.png',
-//            'box_office' => '123',
-//            'director' => 1,
-//            'release_date' => '2022-04-05',
-//            'phase' => 1,
-//        );
-//
-//        $result = validateFormData($array);
-//
-//        $this->assertEquals($expected, $result);
-//    }
+    public function testGivenNonArrayToValidateReturnError()
+    {
+        $string = 'hello';
 
+        $this->expectException(TypeError::class);
 
+        //Act - calling the function
+        $result = validateFormData($string);
+    }
+
+    public function testGivenNonArrayToSanitiseReturnError()
+    {
+        $string = 'hello';
+
+        $this->expectException(TypeError::class);
+
+        //Act - calling the function
+        $result = sanitiseFormData($string);
+    }
+
+    public function testValidationGivenStringDateInArrayReturnFalse()
+    {
+
+        $input= array(
+            'title' => 'IronMan',
+            'boxOffice' => 123,
+            'director' => 'John Favreau',
+            'releaseDate' => 'hello',
+            'phase' => 'One'
+        );
+
+        $result = validateFormData($input);
+
+        $expected = false;
+
+        $this->assertEquals($expected,$result);
+    }
+
+    public function testValidationGivenOldDateInArrayReturnFalse()
+    {
+
+        $input= array(
+            'title' => 'IronMan',
+            'boxOffice' => 123,
+            'director' => 'John Favreau',
+            'releaseDate' => formatDate('21-07-1980'),
+            'phase' => 'One'
+        );
+
+        $result = validateFormData($input);
+
+        $expected = false;
+
+        $this->assertEquals($expected,$result);
+    }
+
+    public function testValidationGivenStringForBoxOfficeReturnFalse()
+    {
+
+        $input = array(
+            'title' => 'IronMan',
+            'boxOffice' => 'hello',
+            'director' => 'John Favreau',
+            'releaseDate' => '21-07-1994',
+            'phase' => 'One'
+        );
+
+        $result = validateFormData($input);
+
+        $expected = false;
+
+        $this->assertEquals($expected, $result);
+    }
+
+    public function testGivenArrayReturnCleanArray()
+    {
+
+        $input= array(
+            'title' => 'IronMan',
+            'boxOffice' => 123,
+            'director' => 'John Favreau',
+            'releaseDate' => '21/07/1994',
+            'phase' => 'One'
+        );
+
+        $result = sanitiseFormData($input);
+
+        $expected = $input;
+
+        $this->assertEquals($expected, $result);
+    }
+
+    public function testGivenEmptyArrayReturnCleanArray()
+    {
+        $input = [];
+
+        $result = sanitiseFormData($input);
+
+        $this->assertIsArray( $result);
+    }
 }

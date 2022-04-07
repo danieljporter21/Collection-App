@@ -31,12 +31,13 @@ $phases = fetchAllPhases(connectToDB($db));
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
         <label for="image">Image:</label>
-        <input type="file" name="newFile" id="image" >
+        <input type="file" name="newFile" id="image">
         <br>
         <label for="boxOffice">Box Office $m:</label>
         <input type="text" id="boxOffice" name="boxOffice" required><br>
         <label for="director">Director:</label>
         <select name="director" id="director">
+            <option value="-1"></option>
             <?php
             echo directorsDropDown($directors);
             ?>
@@ -44,6 +45,7 @@ $phases = fetchAllPhases(connectToDB($db));
         <br>
         <label for="phase">Phase:</label>
         <select name="phase" id="phase">
+            <option value="-1"></option>
             <?php
             echo phasesDropDown($phases);
             ?>

@@ -6,7 +6,7 @@ function displayFilms(array $films): string
     foreach ($films as $film) {
         $date = date('d-m-y', strtotime($film['release_date']));
         $filmcomponent .=
-            '<div class="film">'
+            '<div class="film hover">'
             . '<h2>' . $film['title'] . '</h2>'
             . '<img src="Images/' . $film['img_name'] . '">'
             . '<p> Box Office: $' . $film['box_office'] . 'm</p>'
@@ -18,7 +18,7 @@ function displayFilms(array $films): string
     return $filmcomponent;
 }
 
-function directorsDropDown(array $directors)
+function directorsDropDown(array $directors): string
 {
     $directorsComponent = '';
     foreach ($directors as $director) {
@@ -28,7 +28,7 @@ function directorsDropDown(array $directors)
     return $directorsComponent;
 }
 
-function phasesDropDown(array $phases)
+function phasesDropDown(array $phases): string
 {
     $phasesComponent = '';
     foreach ($phases as $phase) {
@@ -46,16 +46,17 @@ function formatDate(string $inputDate): string
 
 function validateFormData(array $formData): bool
 {
+    if (count($formData) == 0) {
+        return [];
+    }
     $isValid = true;
     $date = $formData['releaseDate'];
     $boxoffice = $formData['boxOffice'];
-    if (date_parse($date) == false) {
+    if (false === strtotime($date)) {
         $isValid = false;
-    }
-    elseif ($date <= date('Y-m-d', strtotime("01/01/1990"))) {
+    } elseif ($date <= date('Y-m-d', strtotime("01/01/1990"))) {
         $isValid = false;
-    }
-    elseif(is_numeric($boxoffice) == false){
+    } elseif (is_numeric($boxoffice) == false) {
         $isValid = false;
     }
     return $isValid;
@@ -64,13 +65,16 @@ function validateFormData(array $formData): bool
 
 function sanitiseFormData(array $formData): array
 {
+    if (count($formData) == 0) {
+        return [];
+    }
     $date = $formData['releaseDate'];
     if ($date === '') {
         $date = null;
     }
     $title = $formData['title'];
     if ($title === '') {
-        $record_label = null;
+        $title = null;
     }
     $boxoffice = $formData['boxOffice'];
     if ($boxoffice === '') {
@@ -78,14 +82,15 @@ function sanitiseFormData(array $formData): array
     }
     $cleanFormData = [
         'title' => $title,
-        'img_name' => $_FILES['newFile']['name'],
-        'box_office' => $boxoffice,
+        'boxOffice' => $boxoffice,
         'director' => $formData['director'],
-        'release_date' => $date,
+        'releaseDate' => $date,
         'phase' => $formData['phase'],
     ];
     return $cleanFormData;
 }
+
+
 
 
 
