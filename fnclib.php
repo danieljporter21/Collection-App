@@ -62,7 +62,6 @@ function validateFormData(array $formData): bool
     return $isValid;
 }
 
-
 function sanitiseFormData(array $formData): array
 {
     if (count($formData) == 0) {

@@ -85,14 +85,12 @@ function uploadFile(): string
     }
 }
 
-
 $imageString = uploadFile(); // this calls the function and puts the return value in $imageString
 
 if (strpos(strtolower($imageString), 'success')) { // if the variable contains the string 'success'
 
     $imageString = substr($imageString, 9); // remove the first 9 characters from -success-
 }
-
 
 function addToDB(PDO $pdo, string $imageName): void
 {

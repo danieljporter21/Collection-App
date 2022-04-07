@@ -8,8 +8,16 @@
 }
 
 .hover:hover {
-    transform: scale(1.05);
     transform: translate(10px);
+}
+
+button:hover {
+    transform: skew(10deg);
+
+}
+
+button{
+    transition: 0.3s;
 }
 
 html {
