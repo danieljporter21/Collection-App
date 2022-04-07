@@ -65,7 +65,7 @@ class fnclib extends TestCase
     public function testValidationGivenGoodArrayReturnTrue()
     {
 
-        $input= array(
+        $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
             'director' => 'John Favreau',
@@ -77,7 +77,7 @@ class fnclib extends TestCase
 
         $expected = true;
 
-        $this->assertEquals($expected,$result);
+        $this->assertEquals($expected, $result);
         $this->assertisArray($input);
     }
 
@@ -104,7 +104,7 @@ class fnclib extends TestCase
     public function testValidationGivenStringDateInArrayReturnFalse()
     {
 
-        $input= array(
+        $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
             'director' => 'John Favreau',
@@ -116,13 +116,13 @@ class fnclib extends TestCase
 
         $expected = false;
 
-        $this->assertEquals($expected,$result);
+        $this->assertEquals($expected, $result);
     }
 
     public function testValidationGivenOldDateInArrayReturnFalse()
     {
 
-        $input= array(
+        $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
             'director' => 'John Favreau',
@@ -134,7 +134,7 @@ class fnclib extends TestCase
 
         $expected = false;
 
-        $this->assertEquals($expected,$result);
+        $this->assertEquals($expected, $result);
     }
 
     public function testValidationGivenStringForBoxOfficeReturnFalse()
@@ -158,7 +158,7 @@ class fnclib extends TestCase
     public function testGivenArrayReturnCleanArray()
     {
 
-        $input= array(
+        $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
             'director' => 'John Favreau',
@@ -179,6 +179,6 @@ class fnclib extends TestCase
 
         $result = sanitiseFormData($input);
 
-        $this->assertIsArray( $result);
+        $this->assertIsArray($result);
     }
 }

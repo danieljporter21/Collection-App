@@ -103,13 +103,7 @@ function addToDB(PDO $pdo, string $imageName): void
     );
 
     $title = $_POST['title'];
-//    $boxOffice = $_POST['boxOffice'];
-    if($_POST['boxOffice'] !==0){
-        $boxOffice = $_POST['boxOffice'];
-    }
-    else{
-        $boxOffice = null;
-    }
+    $boxOffice = $_POST['boxOffice'];
     if($_POST['director'] !=='-1'){
         $director = $_POST['director'];
     }

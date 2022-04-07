@@ -89,10 +89,3 @@ function sanitiseFormData(array $formData): array
     ];
     return $cleanFormData;
 }
-
-
-
-
-
-
-
