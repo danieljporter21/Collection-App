@@ -34,7 +34,7 @@ $phases = fetchAllPhases(connectToDB($db));
     </div>
 </main>
 <footer>
-    <button onclick="window.location.href='userform.php';">Add to Collection</button>
+    <button class="hover" onclick="window.location.href='userform.php';">Add to Collection</button>
 </footer>
 </body>
 </html>

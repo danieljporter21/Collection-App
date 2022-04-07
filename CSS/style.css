@@ -9,6 +9,7 @@
 
 .hover:hover {
     transform: scale(1.05);
+    transform: translate(10px);
 }
 
 html {
@@ -54,6 +55,7 @@ h1 {
     height: auto;
     gap: 0;
     background-color: #ffffff;
+    transition: 0.3s;
 }
 
 p {
