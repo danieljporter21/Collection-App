@@ -16,7 +16,7 @@ button:hover {
 
 }
 
-button{
+button {
     transition: 0.3s;
 }
 
@@ -118,7 +118,7 @@ form button {
     background-color: #ffffff;
 }
 
-form .submit{
+form .submit {
     background-color: #ffffff;
 }
 

@@ -102,16 +102,14 @@ function addToDB(PDO $pdo, string $imageName): void
 
     $title = $_POST['title'];
     $boxOffice = $_POST['boxOffice'];
-    if($_POST['director'] !=='-1'){
+    if ($_POST['director'] !== '-1') {
         $director = $_POST['director'];
-    }
-    else{
+    } else {
         $director = null;
     }
-    if($_POST['phase'] !=='-1'){
+    if ($_POST['phase'] !== '-1') {
         $phase = $_POST['phase'];
-    }
-    else{
+    } else {
         $phase = null;
     }
     $date = formatDate($_POST['releaseDate']);
@@ -131,7 +129,7 @@ function addToDB(PDO $pdo, string $imageName): void
 $isSanitised = sanitiseFormData($_POST);
 $isvalid = validateFormData($isSanitised);
 
-if ($isvalid){
+if ($isvalid) {
     addToDB($connection, $imageString);
 }
 
