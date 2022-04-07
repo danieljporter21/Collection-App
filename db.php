@@ -57,10 +57,26 @@ function fetchAllFilms(PDO $dbConnection): array
     $sql = 'SELECT `films`.`id`, `films`.`title`, `films`.`box_office`, `films`.`director`, `films`.`box_office`,
            `films`.`phase`, `films`.`release_date`, `films`.`img_name`, `directors`.`director`, `phases`.`phase`
             FROM `films`
-                INNER JOIN `directors`
+            LEFT JOIN `directors`
                 ON `films`.`director` = `directors`.`id`
-                INNER JOIN `phases`
+                LEFT JOIN `phases`
                 ON `films`.`phase` = `phases`.`id`;';
+
+    return fetchAll($dbConnection, $sql);
+}
+
+function fetchAllDirectors(PDO $dbConnection): array
+{
+    $sql = 'SELECT `directors`.`id`, `directors`.`director`
+            FROM `directors`;';
+
+    return fetchAll($dbConnection, $sql);
+}
+
+function fetchAllPhases(PDO $dbConnection): array
+{
+    $sql = 'SELECT `phases`.`id`, `phases`.`phase`
+            FROM `phases`;';
 
     return fetchAll($dbConnection, $sql);
 }
