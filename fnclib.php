@@ -20,21 +20,12 @@ function displayFilms(array $films): string
 
 function directorsDropDown(array $directors): string
 {
-<<<<<<< HEAD
     $directorComponent = '';
     foreach ($directors as $director) {
         $directorComponent .=
             '<option value=' . $director['id'] . '>' . $director['director'] . '</option>';
     }
     return $directorComponent;
-=======
-    $directorsComponent = '';
-    foreach ($directors as $director) {
-        $directorsComponent .=
-            '<option value="' . $director['id'] . '">' . $director['director'] . '</option>';
-    }
-    return $directorsComponent;
->>>>>>> 4143caaa77c4d022dac5a4d385aab387a2a6d4f6
 }
 
 function phasesDropDown(array $phases): string

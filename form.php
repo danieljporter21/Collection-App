@@ -101,18 +101,6 @@ function addToDB(PDO $pdo, string $imageName): void
     );
 
     $title = $_POST['title'];
-<<<<<<< HEAD
-////    $boxOffice = $_POST['box_office'];
-//////    $director = intval($_POST['director']);
-//////    $phase = $_POST['phase'];
-////    $releaseDate= $_POST['release_date'];
-//
-    $query->bindParam(':newTitle', $title);
-////    $query->bindParam(':newBoxOffice', $boxOffice);
-//////    $query->bindParam(':newDirector', $director);
-//////    $query->bindParam(':newPhase', $phase);
-////    $query->bindParam(':newReleaseDate', $releaseDate);
-=======
     $boxOffice = $_POST['boxOffice'];
     if($_POST['director'] !=='-1'){
         $director = $_POST['director'];
@@ -135,7 +123,6 @@ function addToDB(PDO $pdo, string $imageName): void
     $query->bindParam(':newPhase', $phase);
     $query->bindParam(':newReleaseDate', $date);
     $query->bindParam(':newImage', $image);
->>>>>>> 4143caaa77c4d022dac5a4d385aab387a2a6d4f6
 
     $query->execute();
 
@@ -149,7 +136,3 @@ if ($isvalid){
 }
 
 header("Location: index.php");
-<<<<<<< HEAD
-
-=======
->>>>>>> 4143caaa77c4d022dac5a4d385aab387a2a6d4f6
