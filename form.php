@@ -77,10 +77,9 @@ function uploadFile(): string
         if (!move_uploaded_file($tempFilename, $newFilepath)) {
             throw new RuntimeException('Failed to move uploaded file.');
         }
-
         return '-success-' . $safeUniqueName;
-
-    } catch (RuntimeException $e) {
+    }
+    catch (RuntimeException $e) {
         return $e->getMessage();
     }
 }
@@ -88,13 +87,11 @@ function uploadFile(): string
 $imageString = uploadFile(); // this calls the function and puts the return value in $imageString
 
 if (strpos(strtolower($imageString), 'success')) { // if the variable contains the string 'success'
-
     $imageString = substr($imageString, 9); // remove the first 9 characters from -success-
 }
 
 function addToDB(PDO $pdo, string $imageName): void
 {
-
     $query = $pdo->prepare(
         'INSERT INTO `films` (`title`,`box_office`,`director`,`phase`,`release_date`,`img_name`)'
         . 'VALUES (:newTitle,:newBoxOffice,:newDirector,:newPhase,:newReleaseDate,:newImage)'
@@ -123,7 +120,6 @@ function addToDB(PDO $pdo, string $imageName): void
     $query->bindParam(':newImage', $image);
 
     $query->execute();
-
 }
 
 $isSanitised = sanitiseFormData($_POST);

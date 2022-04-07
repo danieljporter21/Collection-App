@@ -64,7 +64,6 @@ class fnclib extends TestCase
 
     public function testValidationGivenGoodArrayReturnTrue()
     {
-
         $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
@@ -103,7 +102,6 @@ class fnclib extends TestCase
 
     public function testValidationGivenStringDateInArrayReturnFalse()
     {
-
         $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
@@ -121,7 +119,6 @@ class fnclib extends TestCase
 
     public function testValidationGivenOldDateInArrayReturnFalse()
     {
-
         $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,
@@ -139,7 +136,6 @@ class fnclib extends TestCase
 
     public function testValidationGivenStringForBoxOfficeReturnFalse()
     {
-
         $input = array(
             'title' => 'IronMan',
             'boxOffice' => 'hello',
@@ -157,7 +153,6 @@ class fnclib extends TestCase
 
     public function testGivenArrayReturnCleanArray()
     {
-
         $input = array(
             'title' => 'IronMan',
             'boxOffice' => 123,

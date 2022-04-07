@@ -13,7 +13,6 @@
 
 button:hover {
     transform: skew(10deg);
-
 }
 
 button {
@@ -83,8 +82,8 @@ p {
 h2 {
     text-align: center;
     padding-top: 1rem;
-    padding-bottom: 1rem;
-    height: 3rem;
+    padding-bottom: 2rem;
+    height: 5rem;
     top: 50%;
     font-weight: bold;
 }
@@ -124,7 +123,7 @@ form .submit {
 
 img {
     width: 100%;
-    height: 50%;
+    height: auto;
 }
 
 form {
@@ -153,4 +152,13 @@ form {
         margin-left: 2rem;
         padding-bottom: 2rem;
     }
+
+    .hover:hover {
+        transform: none;
+    }
+
+    button:hover {
+        transform: none;
+    }
+
 }
