@@ -5,8 +5,7 @@ require_once 'fnclib.php';
 $db = 'CollectionApp';
 $films = fetchAllFilms(connectToDB($db));
 $directors = fetchAllDirectors(connectToDB($db));
-
-print_r($directors);
+$phases = fetchAllPhases(connectToDB($db));
 
 ?>
 
@@ -24,6 +23,7 @@ print_r($directors);
 
 <body>
 <header>
+    <div class="bar"></div>
     <h1>Marvel Film Collection</h1>
 </header>
 <main>
@@ -33,8 +33,8 @@ print_r($directors);
         ?>
     </div>
 </main>
-
 <footer>
+<<<<<<< HEAD
     <form action="form.php" method="post">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title"><br>
@@ -52,6 +52,9 @@ print_r($directors);
         <input type="date" id="release_date" name="release_date"><br>
         <input type="submit">
     </form>
+=======
+    <button onclick="window.location.href='userform.php';">Add to Collection</button>
+>>>>>>> 4143caaa77c4d022dac5a4d385aab387a2a6d4f6
 </footer>
 </body>
 </html>

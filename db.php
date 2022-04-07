@@ -68,7 +68,15 @@ function fetchAllFilms(PDO $dbConnection): array
 function fetchAllDirectors(PDO $dbConnection): array
 {
     $sql = 'SELECT `directors`.`id`, `directors`.`director`
-            FROM `directors`';
+            FROM `directors`;';
+
+    return fetchAll($dbConnection, $sql);
+}
+
+function fetchAllPhases(PDO $dbConnection): array
+{
+    $sql = 'SELECT `phases`.`id`, `phases`.`phase`
+            FROM `phases`;';
 
     return fetchAll($dbConnection, $sql);
 }
