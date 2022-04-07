@@ -23,6 +23,7 @@ $phases = fetchAllPhases(connectToDB($db));
 
 <body>
 <header>
+    <div class="bar"></div>
     <h1>Marvel Film Collection</h1>
 </header>
 <main>

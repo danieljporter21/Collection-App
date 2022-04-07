@@ -44,3 +44,50 @@ function formatDate(string $inputDate): string
     return $formatedDate;
 }
 
+function validateFormData(array $formData): bool
+{
+    $isValid = true;
+    $date = $formData['releaseDate'];
+    $boxoffice = $formData['boxOffice'];
+    if (date_parse($date) == false) {
+        $isValid = false;
+    }
+    elseif ($date <= date('Y-m-d', strtotime("01/01/1990"))) {
+        $isValid = false;
+    }
+    elseif(is_numeric($boxoffice) == false){
+        $isValid = false;
+    }
+    return $isValid;
+}
+
+
+function sanitiseFormData(array $formData): array
+{
+    $date = $formData['releaseDate'];
+    if ($date === '') {
+        $date = null;
+    }
+    $title = $formData['title'];
+    if ($title === '') {
+        $record_label = null;
+    }
+    $boxoffice = $formData['boxOffice'];
+    if ($boxoffice === '') {
+        $boxoffice = null;
+    }
+    $cleanFormData = [
+        'title' => $title,
+        'img_name' => $_FILES['newFile']['name'],
+        'box_office' => $boxoffice,
+        'director' => $formData['director'],
+        'release_date' => $date,
+        'phase' => $formData['phase'],
+    ];
+    return $cleanFormData;
+}
+
+
+
+
+

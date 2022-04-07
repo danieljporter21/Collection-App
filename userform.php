@@ -22,10 +22,11 @@ $phases = fetchAllPhases(connectToDB($db));
 
 <body>
 <header>
+    <div class="bar"></div>
     <h1>Marvel Film Collection</h1>
 </header>
 <main>
-    <h2>Fill Out The Form Below To Add To The Collection:</h2>
+    <h2 class="formTitle">Fill Out The Form Below To Add To The Collection</h2>
     <form action="form.php" method="post" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
@@ -35,14 +36,14 @@ $phases = fetchAllPhases(connectToDB($db));
         <label for="boxOffice">Box Office $m:</label>
         <input type="text" id="boxOffice" name="boxOffice" required><br>
         <label for="director">Director:</label>
-        <select name="director" id="director" required>
+        <select name="director" id="director">
             <?php
             echo directorsDropDown($directors);
             ?>
         </select>
         <br>
         <label for="phase">Phase:</label>
-        <select name="phase" id="phase" required>
+        <select name="phase" id="phase">
             <?php
             echo phasesDropDown($phases);
             ?>
@@ -50,7 +51,8 @@ $phases = fetchAllPhases(connectToDB($db));
         <br>
         <label for="releaseDate">Release Date:</label>
         <input type="date" id="releaseDate" name="releaseDate" required><br>
-        <input type="submit">
+        <input class="submit" type="submit">
+        <button onclick="window.location.href='index.php';">Back to Collection</button>
     </form>
 </main>
 </body>

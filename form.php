@@ -22,7 +22,7 @@ function uploadFile(): string
             case UPLOAD_ERR_OK:
                 break;
             case UPLOAD_ERR_NO_FILE:
-                throw new RuntimeException('No file sent.');
+                return '-success-comingsoon.png';
             case UPLOAD_ERR_INI_SIZE:
             case UPLOAD_ERR_FORM_SIZE:
                 throw new RuntimeException('Exceeded filesize limit.');
@@ -85,6 +85,7 @@ function uploadFile(): string
     }
 }
 
+
 $imageString = uploadFile(); // this calls the function and puts the return value in $imageString
 
 if (strpos(strtolower($imageString), 'success')) { // if the variable contains the string 'success'
@@ -93,7 +94,7 @@ if (strpos(strtolower($imageString), 'success')) { // if the variable contains t
 }
 
 
-function addToDB(PDO $pdo, string $imageName)
+function addToDB(PDO $pdo, string $imageName): void
 {
 
     $query = $pdo->prepare(
@@ -119,6 +120,23 @@ function addToDB(PDO $pdo, string $imageName)
     $query->execute();
 }
 
-echo addToDB($connection, $imageString);
-//var_dump(addToDB($connection,$imageString));
+$isSanitised = sanitiseFormData($_POST);
+$isvalid = validateFormData($_POST);
+
+//echo '<pre>';
+//print_r($isSanitised);
+//echo '</pre>';
+//echo '<pre>';
+//var_dump($isvalid);
+//echo '</pre>';
+//
+//
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
+
+if ($isvalid){
+    addToDB($connection, $imageString);
+}
+
 header("Location: index.php");

@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class fnclib extends TestCase
 {
-    public function testGivenEmptyArray()
+    public function testMainCollectionGivenEmptyArray()
     {
         $array = [];
 
@@ -61,4 +61,48 @@ class fnclib extends TestCase
         //Act - calling the function
         $result = formatDate($date);
     }
+
+    public function testValidationGivenArrayReturnTrue()
+    {
+
+        $array[] = array(
+            'title' => 'test',
+            'boxOffice' => '123',
+            'director' => '1',
+            'phase' => '1',
+            'releaseDate' => '2022-04-05'
+        );
+
+        $result = validateFormData($array);
+
+        $expected = true;
+
+        $this->assertEquals($expected,$result);
+    }
+
+//    public function testSanitisationGivenArrayReturnTrue()
+//    {
+//        $array[] = array(
+//            'title' => 'test',
+//            'img_name' => '2272e4bd843da8def6d322226673735aaa7c6820975ff94322a91f6c95df5d3d.0.png',
+//    'box_office' => '123',
+//    'director' => 1,
+//    'release_date' => '2022-04-05',
+//    'phase' => 1,
+//        );
+//        $expected[] = array(
+//            'title' => 'test',
+//            'img_name' => '2272e4bd843da8def6d322226673735aaa7c6820975ff94322a91f6c95df5d3d.0.png',
+//            'box_office' => '123',
+//            'director' => 1,
+//            'release_date' => '2022-04-05',
+//            'phase' => 1,
+//        );
+//
+//        $result = validateFormData($array);
+//
+//        $this->assertEquals($expected, $result);
+//    }
+
+
 }
