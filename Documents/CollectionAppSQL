@@ -1,4 +1,4 @@
-//Create database called CollectionApp
+*/Create database called CollectionApp
 
 DROP TABLE IF EXISTS `directors`;
 

@@ -29,7 +29,7 @@ class fnclib extends TestCase
 
         $result = displayFilms($array);
 
-        $this->assertEquals('<div class="film"><h2>Iron-Man</h2><img src="Images/iron_man1.jpg"><p> Box Office: $585.2m</p><p> Director: John Favreau</p><p> Phase: One</p><p> Release Date: 02-05-08</p></div>', $result);
+        $this->assertEquals('<div class="film hover"><h2>Iron-Man</h2><img src="Images/iron_man1.jpg"><p> Box Office: $585.2m</p><p> Director: John Favreau</p><p> Phase: One</p><p> Release Date: 02-05-08</p></div>', $result);
     }
 
     public function testGivenStringThrowError()
