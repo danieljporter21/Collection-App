@@ -1,3 +1,5 @@
+//Create database called CollectionApp
+
 DROP TABLE IF EXISTS `directors`;
 
 CREATE TABLE `directors` (
